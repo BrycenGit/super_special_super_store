@@ -2,7 +2,7 @@
 <p>We've got candy and prosciutto</p>
 <hr>
 <h3>Most Reviewed Products</h3>
-<%= link_to @most.name, product_path(@most) %>
+<ul><li><%= link_to @most.name, product_path(@most) %></li></ul>
 <hr>
 <h3>Most Recent Products</h3>
 <% if Product.three_recent.any? %>
@@ -13,4 +13,4 @@
   </ul>
   <% end %>
 <hr>
-<%= link_to "View Our Products", products_path %>
+<%= link_to "View Our Products", products_path, class: 'btn btn-info'%>

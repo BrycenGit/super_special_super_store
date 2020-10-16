@@ -44,8 +44,6 @@ gem 'faker'
 
 gem 'fileutils'
 
-gem 'bootstrap'
-
 gem 'bootstrap-sass'
 
 gem 'sassc-rails'

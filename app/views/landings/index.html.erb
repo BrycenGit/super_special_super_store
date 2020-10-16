@@ -4,22 +4,25 @@
 <h3>Most Reviewed Products</h3>
 <ul><li><%= link_to @most.name, product_path(@most) %></li></ul>
 <hr>
-<h3>Most Recent Products</h3>
+
 <% if Product.three_recent.any? %>
+<h3>Most Recent Products</h3>
   <ul>
     <% Product.three_recent.each do |product| %>
     <li><%= link_to product.name, product_path(product) %></li> 
     <% end %>
   </ul>
-  <% end %>
-<hr>
-<h3>Local Belgium Products</h3>
+  <hr>
+<% end %>
+
 <% if Product.belgium.any? %>
+<h3>Local Belgium Products</h3>
   <ul>
     <% Product.belgium.each do |product| %>
     <li><%= link_to product.name, product_path(product) %></li> 
     <% end %>
   </ul>
-  <% end %>
-<hr>
+  <hr>
+<% end %>
+
 <%= link_to "View Our Products", products_path, class: 'btn btn-info'%>

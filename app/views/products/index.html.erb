@@ -10,6 +10,10 @@
 <% else %>
   <p>There are no products yet.</p>
 <% end %>
+<hr>
+
+<p><%= link_to "Last Page", products_path(page: @page - 1), class: 'btn btn-primary'%>
+<%= link_to "Next Page", products_path(page: @page + 1), class: 'btn btn-primary'%></p>
 
 
 <p><%= link_to "Create new product", new_product_path, class: 'btn btn-success' %></p>

@@ -1,7 +1,10 @@
 class ProductsController < ApplicationController
+  PER_PAGE = 10
+
 
   def index
-    @products = Product.all
+    @page = params.fetch(:page, 0).to_i
+    @products = Product.offset(@page * PER_PAGE).limit(PER_PAGE)
     render :index
   end
 

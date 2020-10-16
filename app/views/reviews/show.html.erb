@@ -1,7 +1,9 @@
-<h1>review: <%= @review.name %></h1>
-<h2>product: <%= @product.name %></h2>
-<h3><%= @review.lyrics %></h3>
-
+<h1>Product: <%= @product.name %></h1>
+<h3>Author: <%= @review.author %></h3>
+<h3><%= @review.rating %> star</h3>
+<hr>
+<p><%= @review.content_body %></p>
+<hr>
 <p><%= link_to "Edit review", edit_product_review_path(@product, @review) %></p>
 <p><%= link_to "Delete review", product_review_path(@product, @review),
                         :data => {:confirm => "Are you sure?",

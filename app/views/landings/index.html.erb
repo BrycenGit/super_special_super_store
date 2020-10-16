@@ -1,4 +1,16 @@
 <h1>Bry's Super Special Super Store</h1>
 <p>We've got candy and prosciutto</p>
 <hr>
+<h3>Most Reviewed Products</h3>
+<%= link_to @most.name, product_path(@most) %>
+<hr>
+<h3>Most Recent Products</h3>
+<% if Product.three_recent.any? %>
+  <ul>
+    <% Product.three_recent.each do |product| %>
+    <li><%= link_to product.name, product_path(product) %></li> 
+    <% end %>
+  </ul>
+  <% end %>
+<hr>
 <%= link_to "View Our Products", products_path %>

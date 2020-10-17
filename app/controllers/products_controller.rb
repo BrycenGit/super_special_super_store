@@ -1,10 +1,23 @@
 class ProductsController < ApplicationController
-  PER_PAGE = 10
-
 
   def index
-    @page = params.fetch(:page, 0).to_i
-    @products = Product.offset(@page * PER_PAGE).limit(PER_PAGE)
+    if params[:next]
+      if params.fetch(:page).to_i > 4
+        @page = 0
+      else
+        @page = params.fetch(:page).to_i 
+      end
+    elsif params[:back]
+      if params.fetch(:page).to_i < 0
+        @page = 4
+      else
+        @page = params.fetch(:page).to_i
+      end
+    else
+      @page = params.fetch(:page, 0).to_i
+    end
+    puts "#{@page}"
+    @products = Product.offset(@page * 10).limit(10)
     render :index
   end
 
@@ -48,6 +61,10 @@ class ProductsController < ApplicationController
     @product.destroy
     flash[:notice] = "Product successfully deleted!"
     redirect_to products_path
+  end
+
+  def hello
+    puts "hello"
   end
 
   private
